@@ -7,16 +7,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../genericdynarray" />
+          <root url="jar://$MODULE_DIR$/../genericdynarray/out/artifacts/genericdynarray_jar/genericdynarray.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../genericdynarray/src/main/java" />
-          <root url="file://$MODULE_DIR$/../genericdynarray/src/test/java" />
-        </SOURCES>
+        <SOURCES />
       </library>
     </orderEntry>
   </component>

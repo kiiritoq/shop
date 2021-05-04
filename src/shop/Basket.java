@@ -1,6 +1,5 @@
 package shop;
 
-
 import ds.DynArray;
 
 public class Basket {
@@ -8,6 +7,7 @@ public class Basket {
     //      ATRIBUTOS
     //---------------------
     DynArray<BasketEntry> entryList = new DynArray<BasketEntry>();
+
 
     //---------------------
     //      CONSTRUCTOR
@@ -17,9 +17,7 @@ public class Basket {
      * Colección de entradas do carrito
      * @return a compra toda
      */
-    public DynArray<BasketEntry> getEntryList(){
-        return entryList;
-    }
+    public DynArray<BasketEntry> getEntryList(){ return entryList; }
 
     //---------------------
     //      METODOS

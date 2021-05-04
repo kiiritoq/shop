@@ -2,8 +2,7 @@ package shop;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.Bidi;
-import java.text.DecimalFormat;
+
 
 public class BasketEntry {
 
