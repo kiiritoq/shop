@@ -10,7 +10,7 @@ public class BasketEntry {
     //      ATRIBUTOS
     //---------------------
     private Product producto; // Producto da entrada do carrito
-    private int items; //Número de unidades  (en positivo)
+    private double items; //Número de unidades  (en positivo)
 
     //---------------------
     //     CONSTRUCTORES
@@ -21,7 +21,7 @@ public class BasketEntry {
      * @param p Producto da entrada do carro
      * @param items número de unidades
      */
-    public BasketEntry(Product p, int items){
+    public BasketEntry(Product p, double items){
         this.producto = p;
         this.items = items;
     }
@@ -40,7 +40,7 @@ public class BasketEntry {
      * Devolve o número de unidades da entrada
      * @return int. Número de items
      */
-    public int getItems(){ return this.items;}
+    public double getItems(){ return this.items;}
 
     /**
      * Engade o número de unidades indicado e devolve
@@ -48,7 +48,7 @@ public class BasketEntry {
      * @param cantidad número de items que engadimos
      * @return número de unidades que hai en total.
      */
-    public int add(int cantidad) {
+    public double add(double cantidad) {
         this.items += cantidad;
         return this.items;
     }
@@ -58,7 +58,7 @@ public class BasketEntry {
      * @param cantidad número de items a eliminar
      * @return número de unidades que quedan en total.
      */
-    public int sub(int cantidad){
+    public double sub(double cantidad){
         if((this.items-cantidad) <0){
             this.items = 0;
         }else{

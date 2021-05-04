@@ -47,6 +47,16 @@ public class Basket {
         return numEntries;
     }
 
+    public void add(Product p, int items){
+        if(entryList.indexOf(p) == -1){
+            System.out.println("ENTRA");
+            entryList.add(new BasketEntry(p,items));
+        }
+
+    }
+
+
+
 
 
 }

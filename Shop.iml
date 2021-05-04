@@ -10,10 +10,12 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../genericdynarray/out/artifacts/genericdynarray_jar/genericdynarray.jar!/" />
+          <root url="jar://$MODULE_DIR$/../genericdynarray/out/artifacts/genericdynarray/genericdynarray.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../genericdynarray/src/main/java" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>
