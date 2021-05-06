@@ -47,11 +47,19 @@ public class Basket {
         return numEntries;
     }
 
-    public void add(Product p, int items){
-        if(entryList.indexOf(p) == -1){
-            System.out.println("ENTRA");
-            entryList.add(new BasketEntry(p,items));
+    public void add(Product p, double items){
+        BasketEntry be = new BasketEntry(p,items);
+
+        if(getEntryList().isEmpty()){
+            getEntryList().add(be);
+        }else if(getEntryList().size() != 0 && getEntryList().indexOf(be.hashCode()) == -1){
+            //Sumar, engadir
+            getEntryList().add(getEntryList().indexOf(be),be);
+        }else if( !getEntryList().isEmpty() && getEntryList().indexOf(be) == -1){
+            getEntryList().add(be);
         }
+
+
 
     }
 
