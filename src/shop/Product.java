@@ -75,7 +75,6 @@ public class Product {
         BigDecimal b2 = new BigDecimal(prod.hashCode());
         return b1.equals(b2);
     }
-
     /**
      * Devolve o hash do producto.
      * @return int co valor hash do producto.
@@ -87,6 +86,16 @@ public class Product {
         hash = hash*31 + tax.hashCode();
         hash = hash*31 +price.hashCode();
         return hash;
+    }
+
+    /**
+     * Devolve true o false cando
+     * @param p
+     * @return
+     */
+    @Override
+    public boolean equals(Object p){
+        return  (this.hashCode() == p.hashCode());
     }
 
     /**

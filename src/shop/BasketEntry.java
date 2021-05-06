@@ -70,7 +70,7 @@ public class BasketEntry {
     /**
      * Devolve un array co total de impostos e o total  da enrtada do
      * carrito.
-     * @return
+     * @return devolve os valores dos impostos e o total do precio
      */
     public BigDecimal[] getTotal(){
         BigDecimal price = new BigDecimal(producto.getPrice());
@@ -98,6 +98,7 @@ public class BasketEntry {
      */
     @Override
     public String toString(){
-        return producto.getName()+"["+this.getItems()+"]["+getTotal()[0]+", "+getTotal()[1]+"]";
+        return getProduct()+"["+this.getItems()+"]["+getTotal()[0]+", "+getTotal()[1]+"]";
     }
+
 }

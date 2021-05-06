@@ -14,7 +14,7 @@ public class Basket {
     //---------------------
 
     /**
-     * Colección de entradas do carrito
+     * Referencia ás entradas do carrito
      * @return a compra toda
      */
     public DynArray<BasketEntry> getEntryList(){ return entryList; }
@@ -47,16 +47,22 @@ public class Basket {
         return numEntries;
     }
 
-    public void add(Product p, int items){
-        if(entryList.indexOf(p) == -1){
-            System.out.println("ENTRA");
-            entryList.add(new BasketEntry(p,items));
+    public void add(Product p, double items){
+        boolean exists = false;
+
+        for(int i =0; i< entryList.size(); i++){
+            if(entryList.get(i).getProduct().toString().equals(p.toString())) {
+                BasketEntry be = getEntryList().get(i);
+                be.add(items);
+                exists = true;
+                break;
+            }
         }
-
+        if (!exists){
+            BasketEntry entry = new BasketEntry(p,items);
+            entryList.add(entry);
+        }
     }
-
-
-
 
 
 }
