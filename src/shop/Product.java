@@ -75,7 +75,6 @@ public class Product {
         BigDecimal b2 = new BigDecimal(prod.hashCode());
         return b1.equals(b2);
     }
-
     /**
      * Devolve o hash do producto.
      * @return int co valor hash do producto.
@@ -90,11 +89,21 @@ public class Product {
     }
 
     /**
+     * Devolve true o false cando
+     * @param p
+     * @return
+     */
+    @Override
+    public boolean equals(Object p){
+        return  (this.hashCode() == p.hashCode());
+    }
+
+    /**
      * Devolde a representación no texto segun o formato.
      * @return Cadena de Caracterese coa representación do texto
      */
     @Override
     public String toString(){
-        return "["+this.getRef()+";"+this.getName()+";"+this.getTax()+";"+this.getPrice()+"]";
+        return "["+this.getRef()+"; "+this.getName()+"; "+this.getTax()+"; "+this.getPrice()+"]";
     }
 }

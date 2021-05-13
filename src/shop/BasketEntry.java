@@ -2,6 +2,7 @@ package shop;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.concurrent.BlockingQueue;
 
 
 public class BasketEntry {
@@ -70,24 +71,35 @@ public class BasketEntry {
     /**
      * Devolve un array co total de impostos e o total  da enrtada do
      * carrito.
-     * @return
+     * @return devolve os valores dos impostos e o total do precio
      */
     public BigDecimal[] getTotal(){
-        BigDecimal price = new BigDecimal(producto.getPrice());
-        BigDecimal items = BigDecimal.valueOf(this.items);
-
-        BigDecimal base = items.multiply(price); // base
-        BigDecimal rdBase = base.setScale(2, RoundingMode.HALF_EVEN);
-
-        BigDecimal tasaProductos = new BigDecimal(producto.getTax());
-
-        BigDecimal impuestos = rdBase.multiply(tasaProductos); //impuestos
-        BigDecimal rdImpuestos = impuestos.setScale(2,RoundingMode.HALF_EVEN);
-
-        BigDecimal total = rdBase.add(rdImpuestos);
+        //Creamos array
         BigDecimal[] data = new BigDecimal[2];
-        data[0]= rdImpuestos;
-        data[1] = total;
+        data[0] = BigDecimal.ZERO.setScale(1);
+        data[1] = BigDecimal.ZERO.setScale(1);
+
+        //Creamos precio base e unidades
+        double dPrice = Double.parseDouble(this.getProduct().getPrice());
+        BigDecimal price = new BigDecimal(dPrice);
+        BigDecimal units = new BigDecimal(this.getItems());
+
+        //Base = num_unidades * precio producto
+        BigDecimal base = new BigDecimal(0);
+        base = price.multiply(units);
+
+        //Creamos impostos e tasa producto
+        double dTasa = Double.parseDouble(this.getProduct().getTax());
+        BigDecimal tasa = new BigDecimal(dTasa);
+        BigDecimal imposto = base.multiply(tasa);
+
+        // Total
+        BigDecimal total = base.add(imposto);
+        data[0] = data[0].add(imposto);
+        data[1] = data[1].add(total);
+        data[0] = data[0].setScale(2,RoundingMode.HALF_EVEN);
+        data[1] = data[1].setScale(2,RoundingMode.HALF_EVEN);
+
         return data;
     }
 
@@ -98,6 +110,8 @@ public class BasketEntry {
      */
     @Override
     public String toString(){
-        return producto.getName()+"["+this.getItems()+"]["+getTotal()[0]+", "+getTotal()[1]+"]";
+        return getProduct()+"["+this.getItems()+"]["+getTotal()[0]+", "+getTotal()[1]+"]";
     }
+
+
 }
